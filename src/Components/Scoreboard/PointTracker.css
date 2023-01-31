@@ -1,7 +1,4 @@
-#scoreboard__wPoints{
-    color:#0dc41cef;
-}
-
-#scoreboard__lPoints{
-    color:#e41919ef;
+.scoreboard__points{
+    margin-left: 1rem;
+    margin-right:1rem;
 }

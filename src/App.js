@@ -1,12 +1,18 @@
-import logo from './logo.svg';
 import React, {useState} from 'react';
 import './App.css';
 import Timer from './Components/Scoreboard/Timer.js'
 import PointTracker from './Components/Scoreboard/PointTracker';
+import ChallengeImage from './Components/ChallengeElements/ChallengeImage';
 function App() {
   const [winPoints, SetWinPoints] = useState(0);
   const changeWinsHandler = (pointDelta) => {
     SetWinPoints(prevPoints => {
+      return prevPoints += pointDelta;
+    });
+  }
+  const [lossPoints, SetLossPoints] = useState(0);
+  const changeLossHandler = (pointDelta) => {
+    SetLossPoints(prevPoints => {
       return prevPoints += pointDelta;
     });
   }
@@ -31,6 +37,11 @@ function App() {
       <div className='scoreboard__banner'>
         <PointTracker value={winPoints} changePoint={changeWinsHandler} color='#0dc41cef'/>
         <Timer/>
+        <PointTracker value={lossPoints} changePoint={changeLossHandler} color='#c72b2b'/>
+      </div>
+      <div className='challenge__images'>
+        <ChallengeImage/>
+        <ChallengeImage/>
       </div>
     </div>
   );
